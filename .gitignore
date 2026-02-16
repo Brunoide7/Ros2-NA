@@ -1,0 +1,16 @@
+# ROS 2 colcon folders
+build/
+install/
+log/
+
+# ESP-IDF
+sdkconfig.old
+
+# Python / tooling
+__pycache__/
+*.pyc
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
