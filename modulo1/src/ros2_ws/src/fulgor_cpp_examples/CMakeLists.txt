@@ -16,9 +16,21 @@ ament_target_dependencies(publisher rclcpp example_interfaces)
 add_executable(subscriber src/subscriber.cpp)
 ament_target_dependencies(subscriber rclcpp example_interfaces)
 
+add_executable(add_two_ints_server src/add_two_ints_server.cpp)
+ament_target_dependencies(add_two_ints_server rclcpp example_interfaces)
+
+add_executable(add_two_ints_client src/add_two_ints_client.cpp)
+ament_target_dependencies(add_two_ints_client rclcpp example_interfaces)
+
+add_executable(number_publisher src/number_publisher.cpp)
+ament_target_dependencies(add_two_ints_client rclcpp example_interfaces)
+
 install(TARGETS
   publisher
   subscriber
+  add_two_ints_server
+  add_two_ints_client
+  number_publisher
   DESTINATION lib/${PROJECT_NAME}
   )
 
