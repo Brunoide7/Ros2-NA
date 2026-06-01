@@ -27,7 +27,7 @@ setup(
             "publisher = fulgor_py_examples.publisher:main",
             "subscriber = fulgor_py_examples.subscriber:main",
             "add_two_ints_server=fulgor_py_examples.add_two_ints_server:main",
-            "add_two_ints_client=fulgor_py_examples.add_two_ints_client:main"
+            "add_two_ints_client=fulgor_py_examples.add_two_ints_client:main",
             "number_publisher=fulgor_py_examples.number_publisher:main"
         ],
     },

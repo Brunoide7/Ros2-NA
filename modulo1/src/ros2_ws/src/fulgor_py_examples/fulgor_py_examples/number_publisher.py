@@ -2,6 +2,7 @@
 import rclpy
 from rclpy.node import Node
 from rclpy.parameter import Parameter
+from rcl_interfaces.msg import SetParametersResult
 from example_interfaces.msg import Int64
 
 class NumberPublisher(Node):
@@ -35,6 +36,7 @@ class NumberPublisher(Node):
         for param in params: 
             if param.name == "number":
                 self.number_ = param.value
+        return SetParametersResult(successful=True)
 
 def main (args=None):
     rclpy.init(args=args)

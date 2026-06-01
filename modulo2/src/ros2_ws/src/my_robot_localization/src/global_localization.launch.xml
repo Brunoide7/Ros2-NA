@@ -1,0 +1,25 @@
+<launch>
+    <!--Argumentos para usar tiempo de simulación y seleccionar dinámicamente el mapa-->
+    <arg name="use_sim_time" default="true"/>
+    <arg name="map_name" default="gz_map"/>
+
+    <!--Variable a la ruta completa al YAML del mapa-->
+    <let name="map_path" value="$(find-pkg-share my_robot_mapping)/maps/$(var map_name)/my_map.yaml"/>
+
+    <!--Nodo map_server: carga y publica el mapa-->
+    <node pkg="nav2_map_server" exec="map_server" output="screen">
+        <param name="yaml_filename" value="$(var map_path)"/>
+        <param name="use_sim_time" value="$(var use_sim_time)"/>
+    </node>
+
+    <!--Nodo Lifecycle_manager: administra el ciclo de vida de los nodos-->
+    <node pkg="nav2_lifecycle_manager" exec="lifecycle_manager" name="lifecycle_manager_localization" output="screen">
+        <!--Lista de lifecycle nodes a administrar-->
+        <param name="node_names" value="[map_server]"/>
+        <param name="use_sim_time" value="$(var use_sim_time)"/>
+        <!--Configura y activa automáticamente los nodos-->
+        <param name="autostart" value="true"/>
+    </node>
+
+</launch>
+

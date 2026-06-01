@@ -23,7 +23,7 @@ add_executable(add_two_ints_client src/add_two_ints_client.cpp)
 ament_target_dependencies(add_two_ints_client rclcpp example_interfaces)
 
 add_executable(number_publisher src/number_publisher.cpp)
-ament_target_dependencies(add_two_ints_client rclcpp example_interfaces)
+ament_target_dependencies(number_publisher rclcpp example_interfaces)
 
 install(TARGETS
   publisher
